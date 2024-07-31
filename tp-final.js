@@ -68,13 +68,7 @@ function gestionarPedido(name, age, product, quantity, payment, hour) {
         console.log("producto no disponible");
     }
     else{
-        console.log(`Costo total inicial: $${totalCost}`);
-        console.log(`Descuentos edad: $${ageDiscount}`);
-        console.log(`Metodo de pago: ${payment}`);
-        console.log(`Descuentos efectivo: $${(paymentDiscount)}`);
-        console.log(`Impuesto: $${(cutleryCost)}`);
-        console.log(`Costo Final: $${finalCost}`);
-        console.log(`${orderTime(hour)}`);
+        console.log(`Costo total inicial: $${totalCost} \nDescuentos edad: $${ageDiscount} \nMetodo de pago: ${payment} \nDescuentos efectivo: $${(paymentDiscount)} \nImpuesto: $${(cutleryCost)} \nCosto Final: $${finalCost} \n${orderTime(hour)}`);
     }
 }
 gestionarPedido("José", 63, "naranja", 1, "efectivo", 12);
