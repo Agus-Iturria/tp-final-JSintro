@@ -10,7 +10,7 @@ function adultCustomer(age){
         return("Usted puede beber alcohol")
     }
 }
-function costoTotalPedido(product,quantity){
+function totalOrderCost(product,quantity){
     let totalCost = 0
     switch(product){
         case "manzana":
@@ -31,33 +31,33 @@ function costoTotalPedido(product,quantity){
             return totalCost = 0
     }
 }
-function aplicarDescuento(age,totalCost){
+function applyDiscount(age,totalCost){
     if (age > 60){
         discount = totalCost *= 0.10
         return discount
     }
 }
-function determinarMetodoPago(payment,totalCost){
+function determinePayment(payment,totalCost){
     if (payment === 'efectivo') {
         discount = totalCost *= 0.10;
         return discount
     }
 }
-function horaPedido(hour){
+function orderTime(hour){
     if (hour >= 12 && hour <= 14) {
         console.log("Es hour pico, puede haber demoras en el servicio.");
     }
 }
-function calcularCubierto(totalCost){
+function calculateCutlery(totalCost){
     let impuesto = 0
     impuesto = totalCost * 0.05; 
     return impuesto;
 }
 function gestionarPedido(name, age, product, quantity, payment, hour) {
-    let totalCost = costoTotalPedido(product, quantity);
-    let ageDiscount = aplicarDescuento(age, totalCost);
-    let paymentDiscount = determinarMetodoPago(payment,totalCost)
-    let cutleryCost = calcularCubierto(totalCost);
+    let totalCost = totalOrderCost(product, quantity);
+    let ageDiscount = applyDiscount(age, totalCost);
+    let paymentDiscount = determinePayment(payment,totalCost)
+    let cutleryCost = calculateCutlery(totalCost);
     let finalCost = totalCost - ageDiscount - paymentDiscount + cutleryCost
 
 
@@ -74,7 +74,7 @@ function gestionarPedido(name, age, product, quantity, payment, hour) {
         console.log(`Descuentos efectivo: $${(paymentDiscount)}`);
         console.log(`Impuesto: $${(cutleryCost)}`);
         console.log(`Costo Final: $${finalCost}`);
-        console.log(`${horaPedido(hour)}`);
+        console.log(`${orderTime(hour)}`);
     }
 }
 gestionarPedido("José", 63, "naranja", 1, "efectivo", 12);
