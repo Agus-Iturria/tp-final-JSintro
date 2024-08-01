@@ -12,7 +12,7 @@ function adultCustomer(age) {
 
 function totalOrderCost(product, quantity) {
     let totalCost = 0;
-    switch (product) {
+    switch (product.toLowerCase()) {
         case "manzana":
             totalCost = quantity * 20;
             break;
@@ -36,7 +36,7 @@ function applyDiscount(age, totalCost) {
 }
 
 function determinePayment(payment, totalCost) {
-    if (payment === 'efectivo') {
+    if (payment.toLowerCase() === 'efectivo') {
         return totalCost * 0.10;
     }
     return 0;
@@ -72,12 +72,15 @@ function gestionarPedido(name, age, product, quantity, payment, hour) {
 
 function solicitarDatos(){
     let name = prompt("Ingrese el nombre del cliente:");
-    if ((name.length) > 30 || (name.length) <= 0){
+    name = name.trim().toLowerCase();
+    if ((name.length) > 30 || (name.length) <= 0 || !isNaN(name)){
         console.log("Nombre no valido")
+        return
     }
     console.log("Nombre: " + name);
 
     let age = prompt("Ingrese la edad del cliente:");
+    age = age.trim()
     if (isNaN(age) || age <= 0) {
         console.log("Edad no valida");
         return
@@ -87,7 +90,8 @@ function solicitarDatos(){
     }
 
     let product = prompt("Ingrese el producto que desea comprar (manzana, naranja, durazno):");
-    if (product == "manzana" || product == "naranja" || product == "durazno"){
+    product = product.trim().toLowerCase()
+    if (product.toLowerCase() == "manzana" || product.toLowerCase() == "naranja" || product.toLowerCase() == "durazno"){
         console.log("Producto: " + product);
     }
     else{
@@ -96,6 +100,7 @@ function solicitarDatos(){
     }
 
     let quantity = prompt("Ingrese la cantidad a comprar:");
+    quantity = quantity.trim()
     if (isNaN(quantity) || quantity <= 0) {
         console.log("Cantidad no valida");
         return
@@ -105,7 +110,8 @@ function solicitarDatos(){
     }
 
     let payment = prompt("Ingrese el método de pago (efectivo, tarjeta):");
-    if (payment == 'efectivo' || payment == 'tarjeta') {
+    payment = payment.trim().toLowerCase()
+    if (payment.toLowerCase() == 'efectivo' || payment.toLowerCase() == 'tarjeta') {
         console.log("Metodo de Pago: "+ payment);
         }
     else{
@@ -114,6 +120,7 @@ function solicitarDatos(){
     }
 
     let hour = prompt("Ingrese la hora del pedido (en formato 24 horas):");
+    hour = hour.trim()
     if (isNaN(hour) || hour < 0 || hour > 23) {
         console.log("Hora no valida");
         return
