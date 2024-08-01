@@ -45,7 +45,7 @@ function determinePayment(payment,totalCost){
 }
 function orderTime(hour){
     if (hour >= 12 && hour <= 14) {
-        console.log("Es hour pico, puede haber demoras en el servicio.");
+        return("Es hour pico, puede haber demoras en el servicio.");
     }
 }
 function calculateCutlery(totalCost){
